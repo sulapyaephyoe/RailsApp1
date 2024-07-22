@@ -2,11 +2,37 @@
 <br>
 <%= link_to "新規作成", new_article_path %>
 <table>
+    <tr> 
+        <th> タイトル </th>
+        <th> メッセージ </th>
+        <th colspan="2"> Action </th>
+    </tr>
     <% @articles.each do |article| %>
         <tr>
-            <td> <%= link_to article.title, article%> </td>
-            <td> <%= link_to article.body, article%> </td>
+            <td> <%= article.title %> </td> 
+            <td> <%= article.body  %> </td>
+            <td> <%= link_to '編集', edit_article_path(article), class: "btn btn-edit" %> </td>
+            <td> <%= link_to '削除', article_path(article), data: {
+                turbo_method: :delete,
+                turbo_confirm: "削除してもよろしいですか？"
+            } %> </td>
         </tr>
     <% end %>
 </table>
+
+<style>
+    table {
+        border-collapse: collapse
+    }
+    table tr {
+        border: 1px solid black;
+    }
+    table td, table th {
+        border-right: 1px solid black;
+    }
+    .btn-edit {
+        width: auto;
+        height: auto;
+    }
+</style>
 
