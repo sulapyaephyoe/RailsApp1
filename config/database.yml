@@ -29,7 +29,3 @@ test:
 
 production:
   <<: *default
-  database: blog_ahbf
-  username: slpp
-  # password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
-  password: ew16tYnjRceuLfOpTTDohbINK4QOdQOO
