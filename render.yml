@@ -1,0 +1,20 @@
+databases:
+  - name: blog_ahbf
+    databaseName: blog_ahbf
+    user: slpp
+    region: Oregon (US West)
+
+services:
+  - type: web
+    name: blog_ahbf
+    env: ruby
+    region: Oregon (US West)
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: blog_app
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
