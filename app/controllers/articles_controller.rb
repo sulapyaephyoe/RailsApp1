@@ -19,6 +19,9 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    article1 = Article.new
+    article1 = Article.find_by(title: @article.title);
+    puts article1.to_json
   end
 
   def update
