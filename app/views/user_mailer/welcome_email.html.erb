@@ -10,8 +10,12 @@
       ユーザー名は「<%= @user.login %>」です。<br>
     </p>
     <p>
-      このサイトにログインするには、<%= @url %>をクリックしてください。
+      このサイトにログインするには example.comをクリックしてください。
     </p>
     <p>本サイトにユーザー登録いただきありがとうございます。</p>
+
+    <p> 画像テスト </p>
+    <!-- <%= image_tag attachments['sample.png'].url %> -->
+    <%= image_tag attachments['sample.png'].url -%>
   </body>
 </html>
